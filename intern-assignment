@@ -1,0 +1,7 @@
+select /* `tbteacher`.`id`, */count(`tbteacher`.`id`) from `tbteacher`
+	where EXISTS (select `tbclass`.`fdTeacherID` from `tbclass`
+						where `tbteacher`.`id` = `tbclass`.`fdTeacherID`
+						and EXISTS (select `tbhomework`.`fdClassID` from `tbhomework`
+										where `tbclass`.`id` = `tbhomework`.`fdClassID`
+										and unix_timestamp(`tbhomework`.`fdEnd`) > unix_timestamp('2017-12-31 23:59:59')
+		                  and unix_timestamp(`tbhomework`.`fdEnd`) < unix_timestamp('2018-12-31 23:59:59')));
