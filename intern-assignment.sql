@@ -10,7 +10,7 @@ select /* `tbteacher`.`id`, */count(`tbteacher`.`id`) from `tbteacher`
 		                      and unix_timestamp(`tbhomework`.`fdEnd`) < unix_timestamp('2018-12-31 23:59:59')));
 
 -- 总次数
-select count(`tbhomework`.`id`) from `tbhomework`;
+select count(`tbhomework`.`id`) from `tbhomework`
 
 -- 需要做完的作业
 select count(`tbaccountclass`.`fdClassID`) from `tbaccountclass`
